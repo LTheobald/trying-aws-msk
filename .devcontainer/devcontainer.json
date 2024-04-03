@@ -13,5 +13,8 @@
 			"bashCompletion": true,
 			"version": "latest"
 		}
+	},
+	"settings": {
+		"workbench.colorTheme": "Monokai Dimmed"
 	}
 }
