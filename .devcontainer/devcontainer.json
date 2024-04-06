@@ -18,7 +18,7 @@
 		"vscode": {
 		  "extensions": [
 			"vscjava.vscode-java-pack"
-		  ],
+		  ]
 		}, 
 		"settings": {
 			"workbench.colorTheme": "Monokai Dimmed"

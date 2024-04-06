@@ -31,7 +31,6 @@
       <artifactId>aws-native</artifactId>
       <version>0.100.0</version>
     </dependency>
-    
 
     <dependency>
       <groupId>junit</groupId>
