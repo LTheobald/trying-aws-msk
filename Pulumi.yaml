@@ -3,3 +3,4 @@ description: Trying AWS MSK via Pulumi
 runtime: java
 config:
     aws:region: eu-west-1
+    aws-native:region: eu-west-1
