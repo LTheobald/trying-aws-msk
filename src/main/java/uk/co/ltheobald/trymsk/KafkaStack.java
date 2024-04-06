@@ -1,6 +1,7 @@
 package uk.co.ltheobald.trymsk;
 
-import com.pulumi.aws.*;
+import com.pulumi.*;
+import com.pulumi.awsnative.*;
 
 class KafkaStack extends Stack {
     public static void main(String[] args) {
