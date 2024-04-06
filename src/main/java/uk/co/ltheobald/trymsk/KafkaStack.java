@@ -31,7 +31,7 @@ public class KafkaStack {
                                                 .vpcId(vpc.id())
                                                 .cidrBlock(String.format("10.0.%d.0/24", i))
                                                 .availabilityZone(availabilityZones.get(i))
-                                                .build()));ßß
+                                                .build()));
                         }
                         List<String> subnetIds = subnets.stream()
                                         .map(subnet -> subnet.id().toString())
