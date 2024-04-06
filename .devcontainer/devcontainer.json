@@ -14,7 +14,14 @@
 			"version": "latest"
 		}
 	},
-	"settings": {
-		"workbench.colorTheme": "Monokai Dimmed"
+	"customizations": {
+		"vscode": {
+		  "extensions": [
+			"vscjava.vscode-java-pack"
+		  ],
+		}, 
+		"settings": {
+			"workbench.colorTheme": "Monokai Dimmed"
+		}
 	}
 }
