@@ -1,12 +1,11 @@
 package uk.co.ltheobald.trymsk;
 
 import com.pulumi.Pulumi;
-import com.pulumi.Stack;
 import com.pulumi.awsnative.msk.Cluster;
 import com.pulumi.awsnative.msk.ClusterArgs;
 import com.pulumi.awsnative.msk.inputs.ClusterBrokerNodeGroupInfoArgs;
 
-public class KafkaStack extends Stack {
+public class KafkaStack {
     public static void main(String... args) {
         Pulumi.run(ctx -> {
             Cluster kafkaCluster = new Cluster("my-msk-cluster",
