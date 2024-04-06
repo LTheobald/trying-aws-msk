@@ -5,7 +5,7 @@
 			"version": "none",
 			"installMaven": "true",
 			"installGradle": "false"
-		}
+		},
 		"ghcr.io/devcontainers/features/aws-cli:1": {
 			"version": "latest"
 		},
