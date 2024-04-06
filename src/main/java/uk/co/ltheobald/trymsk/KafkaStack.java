@@ -13,6 +13,7 @@ import com.pulumi.awsnative.ec2.VpcArgs;
 import com.pulumi.awsnative.msk.Cluster;
 import com.pulumi.awsnative.msk.ClusterArgs;
 import com.pulumi.awsnative.msk.inputs.ClusterBrokerNodeGroupInfoArgs;
+import com.pulumi.resources.CustomResourceOptions;
 
 public class KafkaStack {
         // TODO Fetch from the config
@@ -23,6 +24,7 @@ public class KafkaStack {
                         Vpc vpc = new Vpc("vpc", VpcArgs.builder().cidrBlock("10.0.0.0/16").build());
 
                         // Create 3 Subnets for the VPC
+                        CustomResourceOptions dependsOnVpc = CustomResourceOptions.builder().dependsOn(vpc).build();
                         List<String> availabilityZones = Arrays.asList(AWS_REGION + "a", AWS_REGION + "b",
                                         AWS_REGION + "c");
                         List<Subnet> subnets = new ArrayList<>();
@@ -31,12 +33,14 @@ public class KafkaStack {
                                                 .vpcId(vpc.id())
                                                 .cidrBlock(String.format("10.0.%d.0/24", i))
                                                 .availabilityZone(availabilityZones.get(i))
-                                                .build()));
+                                                .build(), dependsOnVpc
+                                                ));
                         }
                         List<String> subnetIds = subnets.stream()
                                         .map(subnet -> subnet.id().toString())
                                         .collect(Collectors.toList());
 
+                                        CustomResourceOptions dependsOnSubnets = CustomResourceOptions.builder().dependsOn(subnets.get(2)).build();
                         Cluster kafkaCluster = new Cluster("my-msk-cluster",
                                         ClusterArgs.builder().brokerNodeGroupInfo(
                                                         ClusterBrokerNodeGroupInfoArgs.builder()
@@ -45,7 +49,7 @@ public class KafkaStack {
                                                                         .instanceType("kafka.t5.small").build())
                                                         .kafkaVersion("3.5.1")
                                                         .numberOfBrokerNodes(3)
-                                                        .build());
+                                                        .build(), dependsOnSubnets);
 
                         ctx.export("kafkaClusterArn", kafkaCluster.arn());
                         ctx.export("kafkaClusterName", kafkaCluster.clusterName());
