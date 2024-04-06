@@ -19,14 +19,20 @@
     <dependency>
       <groupId>com.pulumi</groupId>
       <artifactId>pulumi</artifactId>
-      <version>(,1.0]</version>
+      <version>0.10.0</version>
     </dependency>
     <dependency>
       <groupId>com.pulumi</groupId>
       <artifactId>aws</artifactId>
-      <version>(6.0.2,6.99]</version>
+      <version>6.29.0</version>
     </dependency>
-  
+    <dependency>
+      <groupId>com.pulumi</groupId>
+      <artifactId>aws-native</artifactId>
+      <version>0.100.0</version>
+    </dependency>
+    
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

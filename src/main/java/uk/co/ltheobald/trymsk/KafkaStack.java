@@ -5,6 +5,8 @@ import com.pulumi.awsnative.msk.*;
 
 class KafkaStack extends Stack {
     public static void main(String[] args) {
+        Pulum§
+
          Cluster kafkaCluster = new Cluster("my-kafka-cluster", new ClusterArgs()
             .setBrokerNodeGroupInfo(new ClusterArgs.BrokerNodeGroupInfoArgs()
                 .setAzDistribution("DEFAULT")
