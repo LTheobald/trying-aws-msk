@@ -46,7 +46,7 @@ public class KafkaStack {
               ClusterBrokerNodeGroupInfoArgs.builder()
                   .brokerAzDistribution("DEFAULT")
                   .clientSubnets(Output.all(subnetIds))
-                  .instanceType("kafka.t5.small").build())
+                  .instanceType("kafka.t3.small").build())
               .kafkaVersion("3.5.1")
               .numberOfBrokerNodes(3)
               .build(),
